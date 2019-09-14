@@ -115,36 +115,5 @@ public class Graph {
         }
     }
 
-
-    // Driver code
-    public static void main(String[] args) {
-        Graph graph = new Graph(7);
-
-        final VulnerabilityScript script1 = new VulnerabilityScript(1, Collections.singletonList(6));
-        final VulnerabilityScript script2 = new VulnerabilityScript(2, Collections.singletonList(1));
-        final VulnerabilityScript script3 = new VulnerabilityScript(3, Arrays.asList(1, 5));
-        final VulnerabilityScript script4 = new VulnerabilityScript(4, Arrays.asList(1, 2));
-        final VulnerabilityScript script5 = new VulnerabilityScript(5, Arrays.asList(2, 4));
-        final VulnerabilityScript script6 = new VulnerabilityScript(6, new ArrayList<>());
-        List<VulnerabilityScript> vulnerabilityScripts = new ArrayList<>();
-        vulnerabilityScripts.add(script1);
-        vulnerabilityScripts.add(script2);
-        vulnerabilityScripts.add(script3);
-        vulnerabilityScripts.add(script4);
-        vulnerabilityScripts.add(script5);
-        vulnerabilityScripts.add(script6);
-
-        for (VulnerabilityScript vulnerabilityScript : vulnerabilityScripts) {
-            for (Integer dependency : vulnerabilityScript.getDependencies()) {
-                graph.addEdge(vulnerabilityScript.getScriptId(), dependency);
-            }
-        }
-
-        if (graph.isCyclic()) {
-            throw new RuntimeException("Graph is cyclic");
-        } else {
-            graph.topologicalSort();
-        }
-    }
 }
 
