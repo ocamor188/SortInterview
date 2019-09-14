@@ -55,7 +55,7 @@ public class Graph {
 
     // Returns true if the graph contains a
     // cycle, else false.
-    private boolean isCyclic() {
+    public boolean isCyclic() {
 
         // Mark all the vertices as not visited and
         // not part of recursion stack
